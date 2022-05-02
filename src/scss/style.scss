@@ -4,3 +4,171 @@
 @import 'libs';
 @import 'global';
 
+.header {
+	background-color: $green;
+	padding-top: 40px;
+}
+
+.header__top {
+	height: 24px;
+	margin-bottom: 56px;
+}
+
+.header__menu-list {
+	@include flex(center);
+	gap: 40px;
+
+	.menu-list__item {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 100%;
+		color: $white-main;
+		padding-bottom: 8px;
+		border-bottom: 2px dashed transparent;
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			border-bottom: 2px dashed $orange;
+		}
+	}
+}
+
+.header__inner {
+	display: flex;
+}
+
+.header__inner-left {
+	margin-bottom: 120px;
+}
+
+.inner-left__socials {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	margin-bottom: 134px;
+
+	svg path {
+		transition: all 0.3s ease-in-out;
+	}
+
+	svg:hover path {
+		fill: $orange;
+	}
+}
+
+.inner-left__img {
+	// max-width: 240px;
+	// max-height: 300px;
+	border-radius: 0 80px 0 0;
+	position: relative;
+	z-index: 2;
+
+	img {
+		max-width: 240px;
+		max-height: 300px;
+		border-radius: 0 80px 0 0;
+		position: relative;
+		z-index: 2;
+	}
+
+	&::before {
+		content: '';
+		width: 240px;
+		height: 300px;
+		position: absolute;
+		top: -30px;
+		right: -30px;
+		background-color: transparent;
+		border-radius: 0 80px 0 0;
+		background-image: url(../images/dash-line-1.svg);
+		z-index: 1;
+	}
+}
+
+.header__inner-center {
+	text-align: center;
+	margin-top: 89px;
+}
+
+.header__inner-logo {
+	display: inline-block;
+	margin-bottom: 40px;
+}
+
+.header__inner-title {
+	font-weight: 500;
+	font-size: 58px;
+	line-height: 120%;
+	color: $white-main;
+	margin-bottom: 20px;
+}
+
+.header__inner-text {
+	max-width: 378px;
+	line-height: 150%;
+	color: $white-main;
+	margin: 0 auto 50px;
+}
+
+.cta-btn {
+	width: 230px;
+	height: 56px;
+	padding: 20px 47px;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 100%;
+	color: $white-main;
+	border-radius: 0px 20px;
+	cursor: pointer;
+
+	&.--orange {
+		background-color: $orange;
+	}
+}
+
+.inner-right__img {
+	// max-width: 240px;
+	// max-height: 300px;
+	margin-bottom: 20px;
+	border-radius: 80px 0 0 0;
+	position: relative;
+	z-index: 2;
+	
+	img {
+		max-width: 240px;
+		max-height: 300px;
+		border-radius: 80px 0 0 0;
+		position: relative;
+		z-index: 2;
+	}
+	
+	&::before {
+		content: '';
+		width: 240px;
+		height: 300px;
+		position: absolute;
+		top: -30px;
+		left: -30px;
+		background-color: transparent;
+		border-radius: 80px 0 0 0;
+		background-image: url(../images/dash-line-2.svg);
+		z-index: 1;
+	}
+}
+
+.inner-right__scroll {
+	display: flex;
+	gap: 15px;
+	margin-right: -225px;
+	transform: rotate(-90deg);
+
+	img {
+		transform: rotate(90deg);
+	}
+}
+
+.inner-right__text {
+	font-size: 14px;
+	line-height: 100%;
+	color: $white-main;
+}
