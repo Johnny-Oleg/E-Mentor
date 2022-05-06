@@ -22,7 +22,7 @@
 							<a class="menu-list__item-link" href="#">Платформа</a>
 						</li>
 						<li class="menu-list__item">
-							<a class="menu-list__item-link" href="#">Курсы</a>
+							<a class="menu-list__item-link" href="courses.html">Курсы</a>
 						</li>
 						<li class="menu-list__item">
 							<a class="menu-list__item-link" href="#">Лекции</a>
@@ -73,7 +73,9 @@
 						<img src="images/header-right-img.jpg" alt="image">
 					</div>
 					<div class="inner-right__scroll">
-						<img src="images/down.svg" alt="arrow down">
+						<a href="#footer">
+							<img src="images/down.svg" alt="arrow down">
+						</a>
 						<p class="inner-right__text">Листайте вниз</p>
 					</div>
 				</div>
@@ -224,7 +226,7 @@
 		</div>
 	</section>
 
-	<footer class="footer">
+	<footer class="footer" id="footer">
 		<div class="container">
 			<div class="footer__contacts">
 				<div class="footer__contacts-social">
@@ -317,7 +319,8 @@
 			</div>
 		</div>
 	</footer>
-	
+		@@include('html/footer.html')
+
 	<script src="js/main.js"></script>
 </body>
 </html>

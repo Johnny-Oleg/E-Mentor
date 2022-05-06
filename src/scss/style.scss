@@ -379,6 +379,8 @@
 	margin-bottom: 120px;
 	background-color: $white-main;
 	background-image: url(../images/banner-bg.png);
+	background-repeat: no-repeat;
+	background-position: center;
 
 	&__content {
 		@include flex(flex-end);
@@ -466,5 +468,26 @@
 
 	&-text + &-text {
 		margin-left: 30px;
+	}
+}
+
+// ============ courses page ==============
+
+.header.--white {
+	background-color: $white-main;
+
+	.header__inner-logo {
+		max-width: 128px;
+		max-height: 16px;
+		margin-bottom: 0;
+		align-self: start;
+	}
+
+	.header__top {
+		@include flex(space-between);
+	}
+
+	.menu-list__item {
+		color: inherit;
 	}
 }

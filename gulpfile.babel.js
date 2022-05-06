@@ -1,16 +1,31 @@
 import pkg from 'gulp';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
+import include from 'gulp-file-include';
 import concat from 'gulp-concat';
 import autoprefixer from 'gulp-autoprefixer';
 import imagemin from 'gulp-imagemin';
 import del from 'del';
 import browserSync from 'browser-sync';
 import uglify from 'gulp-uglify-es';
+// import htmlmin from 'gulp-html-min'; not installed
 
 const { src, dest, watch, parallel, series } = pkg;
 const scss = gulpSass(dartSass);
 const sync = browserSync.create();
+
+export function html() {
+	return src('src/**.html') // or ['index.html']
+		.pipe(include({
+			prefix: '@@',
+			// basepath: '@file'
+		}))
+		// .pipe(htmlmin({
+		// 	collapseWhitespace: true,
+		// }))
+		.pipe(dest('dist'));
+
+}
 
 export function styles() {
 	return src('src/scss/style.scss')
@@ -24,13 +39,15 @@ export function styles() {
 export function watching() {
 	watch(['src/scss/**/*.scss'], styles);
 	watch(['src/js/**/*.js', '!src/js/main.min.js'], scripts);
-	watch(['src/*.html']).on('change', sync.reload);
+	watch('src/**.html', html).on('change', sync.reload);
+	// watch(['src/*.html']).on('change', sync.reload);
 }
 
 export function syncing() {
 	sync.init({
 		server: {
 			baseDir: 'src/',
+			// baseDir: './dist',
 		}
 	})
 }
@@ -75,7 +92,7 @@ function building() {
 	], { base: 'src' })
 		.pipe(dest('dist'));
 }
-console.log(imagemin);
+
 export const build = series(cleanDist, images, building);
 export default parallel(styles, scripts, syncing, watching);
 
