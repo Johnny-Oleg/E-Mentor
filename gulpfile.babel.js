@@ -15,86 +15,93 @@ const scss = gulpSass(dartSass);
 const sync = browserSync.create();
 
 export function html() {
-	return src('src/**.html') // or ['index.html']
-		.pipe(include({
-			prefix: '@@',
-			// basepath: '@file'
-		}))
-		// .pipe(htmlmin({
-		// 	collapseWhitespace: true,
-		// }))
-		.pipe(dest('dist'));
-
+    return (
+        src('src/html/*.html') // or ['index.html']
+            .pipe(
+                include({
+                    prefix: '@@',
+                    // basepath: '@file'
+                })
+            )
+            // .pipe(htmlmin({
+            // 	collapseWhitespace: true,
+            // }))
+            .pipe(dest('src'))
+    );
 }
 
 export function styles() {
-	return src('src/scss/style.scss')
-		.pipe(scss({ outputStyle: 'compressed' }))
-		.pipe(concat('style.min.css'))
-		.pipe(autoprefixer({ overrideBrowserlist: ['last 10 version'], grid: true }))
-		.pipe(dest('src/css'))
-		.pipe(sync.stream());
+    return src('src/scss/style.scss')
+        .pipe(scss({ outputStyle: 'compressed' }))
+        .pipe(concat('style.min.css'))
+        .pipe(
+            autoprefixer({
+                overrideBrowserlist: ['last 5 version'],
+                grid: true,
+            })
+        )
+        .pipe(dest('src/css'))
+        .pipe(sync.stream());
 }
 
 export function watching() {
-	watch(['src/scss/**/*.scss'], styles);
-	watch(['src/js/**/*.js', '!src/js/main.min.js'], scripts);
-	watch('src/**.html', html).on('change', sync.reload);
-	// watch(['src/*.html']).on('change', sync.reload);
+    watch(['src/scss/**/*.scss'], styles);
+    watch(['src/js/**/*.js', '!src/js/main.min.js'], scripts);
+    watch(['src/html/**/*.html'], html).on('change', sync.reload);
+    watch(['src/*.html']).on('change', sync.reload);
 }
 
 export function syncing() {
-	sync.init({
-		server: {
-			baseDir: 'src/',
-			// baseDir: './dist',
-		}
-	})
+    sync.init({
+        server: {
+            baseDir: 'src/',
+            // baseDir: './dist',
+        },
+    });
 }
 
 export function scripts() {
-	return src([
-		'node_modules/jquery/dist/jquery.js',
-		'src/js/main.js'
-	])
-		.pipe(concat('main.min.js'))
-		.pipe(uglify.default())
-		.pipe(dest('src/js'))
-		.pipe(sync.stream());
+    return src(['node_modules/jquery/dist/jquery.js', 'src/js/main.js'])
+        .pipe(concat('main.min.js'))
+        .pipe(uglify.default())
+        .pipe(dest('src/js'))
+        .pipe(sync.stream());
 }
 
 export function cleanDist() {
-	return del('dist');
+    return del('dist');
 }
 
 export function images() {
-	return src('src/images/**/*')
-        .pipe(imagemin(
-			// [
-			// 	imagemin.gifsicle({ interlaced: true }),
-			// 	imagemin.mozjpeg({ quality: 75, progressive: true }),
-			// 	imagemin.optipng({ optimizationLevel: 5 }),
-			// 	imagemin.svgo({
-			// 		plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
-			// 	}),
-			// ]
-			)
+    return src('src/images/**/*')
+        .pipe(
+            imagemin()
+            // [
+            // 	imagemin.gifsicle({ interlaced: true }),
+            // 	imagemin.mozjpeg({ quality: 75, progressive: true }),
+            // 	imagemin.optipng({ optimizationLevel: 5 }),
+            // 	imagemin.svgo({
+            // 		plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
+            // 	}),
+            // ]
         )
         .pipe(dest('dist/images'));
 }
 
 function building() {
-	return src([
-		'src/css/style.min.css',
-		'src/fonts/**/*',
-		'src/js/main.min.js',
-		'src/*.html'
-	], { base: 'src' })
-		.pipe(dest('dist'));
+    return src(
+        [
+            'src/css/style.min.css',
+            'src/fonts/**/*',
+            'src/js/main.min.js',
+            'src/*.html',
+        ],
+        { base: 'src' }
+    ).pipe(dest('dist'));
 }
 
 export const build = series(cleanDist, images, building);
-export default parallel(styles, scripts, syncing, watching);
+export default parallel(html, styles, scripts, syncing, watching);
 
 // "optionalDependencies": {
 //   "imagemin-gifsicle": "^5.2.0",

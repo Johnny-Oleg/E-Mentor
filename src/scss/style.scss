@@ -475,6 +475,7 @@
 
 .header.--white {
 	background-color: $white-main;
+	margin-bottom: 60px;
 
 	.header__inner-logo {
 		max-width: 128px;
@@ -485,9 +486,64 @@
 
 	.header__top {
 		@include flex(space-between);
+		margin-bottom: 50px;
 	}
 
 	.menu-list__item {
 		color: inherit;
 	}
+
+	.header__inner-path {
+		@include flex(space-between);
+		gap: 15px;
+	}
+}
+
+.path__link {
+	font-size: 14px;
+	line-height: 100%;
+
+	&.--current {
+		opacity: 0.5;
+	}
+}
+
+.motion {
+	background-color: $white-main;
+
+	&__content {
+		margin-bottom: 120px;
+
+		&-title {
+			max-width: 1010px;
+			margin-bottom: 40px;
+			font-weight: 500;
+			font-size: 58px;
+			line-height: 120%;		
+			font-feature-settings: 'pnum' on, 'lnum' on;
+		}
+
+		&-img {
+			margin-bottom: 40px;
+		}
+
+		&-subtitle {
+			max-width: 870px;
+			margin-bottom: 25px;
+			font-weight: 500;
+			font-size: 22px;
+			line-height: 130%;
+			font-feature-settings: 'pnum' on, 'lnum' on;
+		}
+
+		&-text {
+			max-width: 810px;
+			margin-bottom: 30px;
+			line-height: 150%;
+		}
+	}
+}
+
+.knowledge {
+	background-color: $green;
 }
