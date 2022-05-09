@@ -1,0 +1,251 @@
+@media (max-width: 1130px) {
+	.header__inner {
+		justify-content: space-between;
+
+		&-center {
+			margin-top: 50px;
+		}
+		&-logo {
+			margin-bottom: 0;
+		}
+		&-title {
+			font-size: 50px;
+			white-space: pre-line;
+		}
+	}
+	.inner-left__img {
+		img {
+			max-width: 200px;
+			border-radius: 0 67px 0 0;
+		}
+
+		&::before {
+			width: 200px;
+			height: 250px;
+			top: -20px;
+			right: -20px;
+			background-image: none;
+			border-radius: 0 67px 0 0;
+			border: 1px dashed $white-main;
+		}
+	}
+	.inner-right__img {
+		img {
+			max-width: 200px;
+			border-radius: 67px 0 0 0;
+		}
+
+		&::before {
+			width: 200px;
+			height: 250px;
+			top: -20px;
+			left: -20px;
+			background-image: none;
+			border-radius: 67px 0 0 0;
+			border: 1px dashed $white-main;
+		}
+	}
+	.inner-right__scroll {
+		margin-right: -190px;
+	}
+}
+
+@media (max-width: 960px) {
+	.header__top {
+		margin-bottom: 50px;
+	}
+	.header__inner-title {
+		font-size: 45px;
+	}
+}
+
+@media (max-width: 900px) {
+	.header__inner-left {
+		margin-bottom: 70px;
+	}
+	.inner-left__socials {
+		margin-bottom: 70px;
+	}
+	.header__inner-title {
+		font-size: 35px;
+	}
+	.header__inner-text {
+		max-width: 370px;
+		font-size: 14px;
+	}
+	.cta-btn {
+		width: 200px;
+		height: 45px;
+		padding: 10px;
+	}
+}
+
+@media (max-width: 850px) {
+	.inner-left__img {
+		img {
+			max-width: 150px;
+			border-radius: 0 50px 0 0;
+		}
+
+		&::before {
+			width: 150px;
+			height: 187.5px;
+			top: -15px;
+			right: -15px;
+			border-radius: 0 50px 0 0;
+		}
+	}
+	.inner-right__img {
+		img {
+			max-width: 150px;
+			border-radius: 50px 0 0 0;
+		}
+
+		&::before {
+			width: 150px;
+			height: 187.5px;
+			top: -15px;
+			left: -15px;
+			border-radius: 50px 0 0 0;
+		}
+	}
+	.inner-right__scroll {
+		margin-right: -140px;
+	}
+}
+
+@media (max-width: 768px) {
+	.header__inner {
+		flex-wrap: wrap;
+
+		&-logo {
+			max-width: 140px;
+		}
+
+		&-left {
+			max-height: 190px;
+			display: flex;
+			justify-content: space-between;
+			flex: 1 0 30%;
+			order: -1;
+			margin-bottom: 0;
+		}
+	}
+	.inner-left__socials {
+		gap: 20px;
+	}
+	.inner-left__img {
+		display: inline-block;
+	}
+	.header__inner-center {
+		flex: 2 0 60%;
+		order: 1;
+		margin-top: 0;
+	}
+	.header__inner-right {
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+		order: 2;
+		margin-top: -80px;
+	}
+	.inner-right__scroll {
+		max-height: 20px;
+		margin-right: 80px;
+		margin-left: 5px;
+	}
+	.inner-right__text {
+		display: none;
+	}
+}
+
+@media (max-width: 690px) {
+	.nav-icon-1{
+		width: 30px;
+		height: 30px;
+		position: relative;
+		transition: .1s;
+		margin: 10px 10px;
+		cursor: pointer;
+		display: inline-block;
+	}
+	.nav-icon-1 span{
+		width: 5px;
+		height: 5px;
+		background-color: #fff;
+		display: block;
+		border-radius: 50%;
+		position: absolute;
+
+	}
+	.nav-icon-1:hover span{
+		transform: scale(1.2);
+		transition: 350ms cubic-bezier(.8, .5, .2, 1.4);
+	}
+	.nav-icon-1 span:nth-child(1){
+		left: 0;
+		top: 0;
+	}
+	.nav-icon-1 span:nth-child(2){
+		left: 12px;
+		top: 0;
+	}
+	.nav-icon-1 span:nth-child(3){
+		right: 0;
+		top: 0;
+	}
+	.nav-icon-1 span:nth-child(4){
+		left: 0;
+		top: 12px;
+	}
+	.nav-icon-1 span:nth-child(5){
+		position: absolute;
+		left: 12px;
+		top: 12px;
+	}
+	.nav-icon-1 span:nth-child(6){
+		right: 0px;
+		top: 12px;
+	}
+	.nav-icon-1 span:nth-child(7){
+		left: 0px;
+		bottom: 0px;
+	}
+	.nav-icon-1 span:nth-child(8){
+		position: absolute;
+		left: 12px;
+		bottom: 0px;
+	}
+	.nav-icon-1 span:nth-child(9){
+		right: 0px;
+		bottom: 0px;
+	}
+	.nav-icon-1.open{
+		transform: rotate(180deg);
+		cursor: pointer;
+		transition: .2s cubic-bezier(.8, .5, .2, 1.4);
+	}
+	.nav-icon-1.open span{
+		border-radius: 50%;
+		transition-delay: 200ms;
+		transition: .5s cubic-bezier(.8, .5, .2, 1.4);
+	}
+	.nav-icon-1.open span:nth-child(2) {
+		left: 6px;
+		top: 6px;
+	}
+	.nav-icon-1.open span:nth-child(4) {
+		left: 6px;
+		top: 18px;
+	}
+	.nav-icon-1.open span:nth-child(6) {
+		right: 6px;
+		top: 6px;
+	}
+	.nav-icon-1.open span:nth-child(8) {
+		left: 18px;
+		bottom: 6px;
+	}
+
+
+}

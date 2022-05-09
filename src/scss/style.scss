@@ -50,11 +50,18 @@
 
 	svg path {
 		transition: all 0.3s ease-in-out;
+		cursor: pointer;
 	}
 
 	svg:hover path {
 		fill: $orange;
 	}
+}
+
+.heartbeat,
+.heartbeat-2 {
+	max-width: 22px;
+	max-height: 22px;
 }
 
 .inner-left__img {
@@ -382,6 +389,7 @@
 	background-image: url(../images/banner-bg.png);
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: cover;
 
 	&__content {
 		@include flex(flex-end);
@@ -428,6 +436,7 @@
 
 	svg path {
 		transition: all 0.3s ease-in-out;
+		cursor: pointer;
 	}
 
 	svg:hover path {
@@ -504,7 +513,16 @@
 
 	.menu-list__item {
 		color: inherit;
+
+		&:hover {
+			border-bottom: 2px dashed $green;
+		}
+
+		&.--active {
+			border-bottom: 2px dashed $orange;
+		}
 	}
+
 
 	.header__inner-path {
 		@include flex(space-between);
@@ -638,6 +656,7 @@
 	background-image: url(../images/discount-bg.png);
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: cover;
 
 	.banner__content {
 		margin-right: 111px;
@@ -677,12 +696,12 @@
 			border-radius: 10px;
 
 			&.active {
-				.faq__container-subtitle {
-					margin-bottom: 0;
-				}
-
 				.faq__container-text {
 					display: block;
+				}
+
+				.faq__container-icon {
+					content: url(../images/faq-close-icon.svg);
 				}
 			}
 		}
@@ -690,12 +709,11 @@
 		&-subtitle {
 			// width: 732px;
 			width: 95%;
+			display: inline-block;
 			font-weight: 500;
 			font-size: 22px;
 			line-height: 130%;
 			font-feature-settings: 'pnum' on, 'lnum' on;
-			margin-bottom: 15px;
-			display: inline-block;
 		}
 
 		&-icon {
@@ -708,6 +726,7 @@
 		&-text {
 			max-width: 670px;
 			display: none;
+			margin-top: 13px;
 			line-height: 130%;
 			font-feature-settings: 'pnum' on, 'lnum' on;
 			transition: all 0.5s ease-out;
