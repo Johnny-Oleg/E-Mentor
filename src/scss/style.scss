@@ -65,8 +65,6 @@
 }
 
 .inner-left__img {
-	// max-width: 240px;
-	// max-height: 300px;
 	border-radius: 0 80px 0 0;
 	position: relative;
 	z-index: 2;
@@ -140,8 +138,6 @@
 }
 
 .inner-right__img {
-	// max-width: 240px;
-	// max-height: 300px;
 	margin-bottom: 20px;
 	border-radius: 80px 0 0 0;
 	position: relative;
@@ -302,8 +298,6 @@
 .format__img {
 	margin-top: 30px;
 	position: relative;
-	// border-radius: 0px 120px 0px 0px;
-	// z-index: 2;
 
 	img {
 		max-width: 470px;
@@ -383,7 +377,6 @@
 }
 
 .banner {
-	// height: 578px;
 	margin-bottom: 120px;
 	background-color: $white-main;
 	background-image: url(../images/banner-bg.png);
@@ -576,6 +569,10 @@
 				margin-bottom: 80px;
 			}
 		}
+
+		& .top-item__text {
+			max-width: 235px;
+		}
 	}
 }
 
@@ -707,7 +704,6 @@
 		}
 		
 		&-subtitle {
-			// width: 732px;
 			width: 95%;
 			display: inline-block;
 			font-weight: 500;

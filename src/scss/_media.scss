@@ -90,7 +90,8 @@
 	.content-info__text {
 		font-size: 14px;
 	}
-	.format__content {
+	.format__content,
+	.knowledge .format__content {
 		flex-direction: column;
 		align-items: center;
 		padding-top: 70px;
@@ -105,6 +106,15 @@
 
 		& .content-info__text {
 			margin: 0 auto 30px;
+		}
+	}
+	.motion__content {
+		& .about__top-items {
+			align-items: start;
+		}
+
+		&-title {
+			font-size: 50px;
 		}
 	}
 }
@@ -168,6 +178,11 @@
 			order: 2;
 		}
 	}
+	.program {
+		.courses__title {
+			font-size: 50px;
+		}
+	}
 }
 
 @media (max-width: 850px) {
@@ -201,6 +216,19 @@
 	}
 	.inner-right__scroll {
 		margin-right: -140px;
+	}
+	.faq {
+		.faq__container-subtitle {
+			width: 94%;
+		}
+	}
+}
+
+@media (max-width: 810px) {
+	.header.--white {
+		.header__inner-logo {
+			max-width: 100px;
+		}
 	}
 }
 
@@ -242,6 +270,24 @@
 			padding: 70px 0 70px;
 		}
 	}
+	.motion__content {
+		 .about__top-items {
+			 gap: 10px;
+		 }
+	}
+	.discount {
+		margin-bottom: 70px;
+		background-image: none;
+		background-color: $white;
+
+		& .banner__content {
+			margin-right: 0;
+		}
+
+		& .content-info__title {
+			margin: 0 auto 20px;
+		}
+	}
 }
 
 @media (max-width: 780px) {
@@ -250,6 +296,14 @@
 	}
 	.footer__copy-text + .footer__copy-text {
 		margin-left: 0;
+	}
+	.header.--white {
+		.header__inner-logo {
+			max-width: 80px;
+		}
+	}
+	.motion__content {
+		margin-bottom: 70px;
 	}
 }
 
@@ -296,6 +350,27 @@
 	.inner-right__text {
 		display: none;
 	}
+	.faq .faq__container-icon {
+		vertical-align: top;
+	}
+	.faq__title {
+		font-size: 50px;
+	}
+}
+
+@media (max-width: 755px) {
+	.header.--white {
+		.header__inner-logo {
+			display: none;
+		}
+	}
+	.program {
+		margin-bottom: 70px;
+	}
+	.faq .faq__container-subtitle {
+		width: 93%;
+		font-size: 20px;
+	}
 }
 
 @media (max-width: 690px) {
@@ -336,7 +411,6 @@
 		height: 30px;
 		position: relative;
 		transition: .1s;
-		// margin: 10px 10px;
 		display: inline-block;
 		cursor: pointer;
 	}
@@ -448,6 +522,76 @@
 	.footer__copy {
 		gap: 10px;
 	}
+	.header.--white {
+		margin-bottom: 30px;
+
+		.header__top {
+			display: block;
+			margin-bottom: 20px;
+		}
+
+		.header__menu-list {
+			.menu-list__item {
+				color: $white-main;
+			}
+		}
+		.nav-icon-1 {
+			span {
+				background-color: $black;
+			}
+		}
+	}
+	.motion__content {
+		margin-bottom: 50px;
+
+		&-title {
+			font-size: 35px;
+		}
+		&-text.mb {
+			margin-bottom: 20px;
+		}
+	}
+	.knowledge {
+		margin-bottom: 70px;
+	}
+	.program {
+		.courses__title {
+			font-size: 35px;
+		}
+	}
+	.faq {
+		margin-bottom: 70px;
+	}
+}
+
+@media (max-width: 720px) {
+	.faq {
+		&__container-subtitle {
+			width: 93%;
+		}
+	}
+	.faq__title {
+		font-size: 40px;
+	}
+}
+
+@media (max-width: 625px) {
+	.knowledge {
+		.format__img {
+			
+			&::before {
+				display: none;
+			}
+			
+			img {
+				position: static;
+			}
+		}
+	}
+	.faq .faq__container-subtitle {
+		width: 90%;
+		font-size: 16px;
+	}
 }
 
 @media (max-width: 600px) {
@@ -501,6 +645,14 @@
 		max-width: 270px;
 		margin-bottom: 30px;
 	}
+	.knowledge {
+		.format__img {
+			img {
+				max-width: 450px;
+				border-radius: 100px 0 0 0;
+			}
+		}
+	}
 }
 
 @media (max-width: 529px) {
@@ -546,6 +698,9 @@
 			border-radius: 0px 31% 0px 0px;
 		}
 	}
+	.faq__title {
+		font-size: 35px;
+	}
 }
 
 @media (max-width: 480px) {
@@ -562,6 +717,20 @@
 	.contacts-social__text {
 		font-size: 12px;
 	}
+	.knowledge {
+		.format__img {
+			img {
+				max-width: 400px;
+				border-radius: 90px 0 0 0;
+			}
+		}
+	}
+	.faq .faq__container-subtitle {
+		width: 87%;
+	}
+	.faq .faq__container-item.active .faq__container-text {
+		font-size: 14px;
+	}
 }
 
 @media (max-width: 420px) {
@@ -572,6 +741,21 @@
 	}
 	.footer__contacts-list {
 		font-size: 14px;
+	}
+	.motion__content-title {
+		font-size: 28px;
+	}
+	.knowledge {
+		.format__content {
+			gap: 20px;
+		}
+
+		.format__img {
+			img {
+				max-width: 350px;
+				border-radius: 80px 0 0 0;
+			}
+		}
 	}
 }
 
@@ -587,6 +771,32 @@
 	}
 	.footer__contacts-social {
 		display: none;
+	}
+	.knowledge {
+		margin-bottom: 30px;
+
+		.format__img {
+			img {
+				max-width: 300px;
+				border-radius: 70px 0 0 0;
+			}
+		}
+	}
+	.program {
+		margin-bottom: 30px;
+	}
+	.discount {
+		margin-bottom: 30px;
+	}
+	.faq {
+		margin-bottom: 30px;
+	}
+	.faq .faq__container-subtitle {
+		width: 85%;
+	}
+	.faq .faq__container-icon {
+		max-width: 25px;
+		max-height: 25px;
 	}
 }
 
